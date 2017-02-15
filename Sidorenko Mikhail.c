@@ -37,7 +37,7 @@ void OpenArg(int argc, char ** argv, char * strFile, FILE ** input)
 		{
 			strFile[i] = argv[1][i];
 		}
-		fopen_s(input, strFile, "rb");
+		*input = fopen(strFile, "rb");
 		if (input == NULL)
 		{
 			puts("File in argument not found.\n");
@@ -62,8 +62,8 @@ int main(int argc, char ** argv)
 	if(strFile[0] == 0) do
 	{
 		puts("No arguments.\nFilename: ");
-		gets_s(strFile, LENGHT_STRING_INPUT);
-		fopen_s(&input, strFile, "rb");
+		gets(strFile, LENGHT_STRING_INPUT);
+		input = fopen(strFile, "rb");
 		if (input == NULL)
 		{
 			puts("File not found.\n");
