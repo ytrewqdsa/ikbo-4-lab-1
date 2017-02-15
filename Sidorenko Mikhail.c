@@ -12,17 +12,6 @@ struct FileSegment
 	float f;
 };
 
-void RawnStruct(struct FileSegment* a, struct FileSegment* b)
-{
-	int i;
-	a->a = b->a;
-	a->f = b->f;
-	for (i = 0; i < 255; i++)
-	{
-		a->str[i] = b->str[i];
-	}
-}
-
 void PrintFileSegment(struct FileSegment a)
 {
 	printf("%d\t%s\t%f\n", a.a, a.str, a.f);
