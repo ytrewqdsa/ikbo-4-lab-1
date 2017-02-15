@@ -62,7 +62,7 @@ int main(int argc, char ** argv)
 	if(strFile[0] == 0) do
 	{
 		puts("No arguments.\nFilename: ");
-		gets(strFile, LENGHT_STRING_INPUT);
+		gets(strFile);
 		input = fopen(strFile, "rb");
 		if (input == NULL)
 		{
