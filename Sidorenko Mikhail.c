@@ -27,14 +27,14 @@ void OpenArg(int argc, char ** argv, char * strFile, FILE ** input)
 			strFile[i] = argv[1][i];
 		}
 		*input = fopen(strFile, "rb");
-		if (input == NULL)
+		if (*input == NULL)
 		{
-			puts("File in argument not found.\n");
-			strFile = 0;
+			printf("File in argument not found.\n");
+			strFile[0] = 0;
 		}
 		else
 		{
-			puts(strFile);
+			printf(strFile);
 		}
 	}
 }
@@ -46,12 +46,12 @@ int main(int argc, char ** argv)
 	struct FileSegment buffer = { 0, {0}, 0 };
 	int i;
 	int count = 0;
-	puts("Hello world!\n");
+	printf("Starting...\n");
 	OpenArg(argc, argv, strFile, &input);
 	if(strFile[0] == 0) do
 	{
 		puts("No arguments.\nFilename: ");
-		gets(strFile);
+		scanf("%s", strFile);
 		input = fopen(strFile, "rb");
 		if (input == NULL)
 		{
